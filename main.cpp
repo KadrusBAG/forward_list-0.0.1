@@ -37,14 +37,15 @@ void sub(node * & head){
 }
 
 void reverse(node * & head){
-    node * prev = nullptr, * cur = head->next, * next;
-	while (cur) {
-		next = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
+    node * new_head = nullptr;
+	for (node * node = head; node; )
+	{
+		node * node_next = node->next;
+		node->next = new_head;
+		new_head = node;
+		node = node_next;
 	}
-	head->next=cur;
+	head = new_head;
 }
 
 void output(node * head){
