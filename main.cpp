@@ -38,12 +38,12 @@ void sub(node * & head){
 
 void reverse(node * & head){
     node * new_head = nullptr;
-	for (node * node = head; node; )
+	for (node * node_t = head; node_t; )
 	{
-		node * node_next = node->next;
-		node->next = new_head;
-		new_head = node;
-		node = node_next;
+		node * node_next = node_t->next;
+		node_t->next = new_head;
+		new_head = node_t;
+		node_t = node_next;
 	}
 	head = new_head;
 }
